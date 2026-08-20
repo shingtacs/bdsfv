@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-image: radial-gradient(circle at 15% 10%, rgba(200, 182, 226, 0.25), transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(255, 216, 184, 0.35), transparent 45%);
+  background-attachment: fixed;
+}
+
+::selection {
+  background: #ffd8b8;
+  color: #4a3b5c;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.section-fade {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.section-fade.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Focus visibility for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #9b82c4;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
